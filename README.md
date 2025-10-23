@@ -7,9 +7,9 @@ These codes are directly related to the current manuscript submitted to The Visu
 <img src="elod.png" width="95%">
 </p>
 
-# Installation
+## Installation
 
-## Prerequisites
+### Prerequisites
 Before starting, install [anaconda](https://docs.conda.io/en/latest/miniconda.html#installing) in order to create a virtual environment and create a new Python 3.12.4 environment using:
 ```
 conda create -n dsfusion python=3.12.4
@@ -22,7 +22,7 @@ conda activate dsfusion
 pip install -r requirements.txt 
 ```
 
-### Checkpoints
+## Checkpoints
 Download model checkpoints from [here](https://drive.google.com/drive/folders/1Exw4_eq8QJgrmgs3gQE9d9mrYim8UHv5?usp=sharing), and directly extract it into the `Checkpoints` folder. The folder should have the following structure:
 ```
 Checkpoints
@@ -35,7 +35,7 @@ Checkpoints
     └── Single_Modality_Models
 ```
 
-### Datasets
+## Datasets
 Download the FLIR Aligned Dataset from [here](https://drive.google.com/drive/folders/18XmdzKj0sGOFt0r4LmwMo9TsVNpyKEzT?usp=sharing), and extract it into the `Datasets` folder. The folder should have the following structure:
 ```
 Datasets
@@ -51,7 +51,7 @@ Datasets
     └── meta
 ```
 
-#### Training 
+## Training 
 * To train the model on full data of FLIR Dataset, run the following command:
 ```
 python train_fusion.py Datasets/FLIR_Aligned --dataset flir_aligned_full --thermal-checkpoint-path Checkpoints/FLIR_Aligned/Single_Modality_Models/flir_thermal_backbone.pth.tar --init-fusion-head-weights thermal --num-classes 90 --rgb_mean 0.485 0.456 0.406 --rgb_std 0.229 0.224 0.225 --thermal_mean 0.519 0.519 0.519 --thermal_std 0.225 0.225 0.225 --model efficientdetv2_dt --batch-size=8 --epochs=50 --branch fusion --freeze-layer fusion_mrf --att_type mrf
