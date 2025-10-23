@@ -4,7 +4,7 @@
 These codes are directly related to the current manuscript submitted to The Visual Computer: Enhancing RGB-IR Object Detection: A Frozen Backbone Approach with Multi-Receptive Field Attention. <br>
 
 <p align="center">
-<img src="elod.png" width="95%">
+<img src="MRFA.pdf" width="95%">
 </p>
 
 ## Installation
@@ -69,9 +69,12 @@ python validate_fusion.py Datasets/M3FD --dataset m3fd_full --thermal-checkpoint
 ```
 
 #### Validating the Fusion Models
-```
+
 # FLIR_Aligned dataset
+```
 bash bash/val_flir_full.sh
+```
 # M3FD dataset
+```
 bash bash/val_m3fd_full.sh
 ```
