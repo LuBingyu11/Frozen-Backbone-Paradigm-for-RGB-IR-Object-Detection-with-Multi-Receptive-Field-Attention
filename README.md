@@ -22,7 +22,6 @@ conda activate dsfusion
 pip install -r requirements.txt 
 ```
 
-
 ### Checkpoints
 Download model checkpoints from [here](https://drive.google.com/drive/folders/1Exw4_eq8QJgrmgs3gQE9d9mrYim8UHv5?usp=sharing), and directly extract it into the `Checkpoints` folder. The folder should have the following structure:
 ```
@@ -34,6 +33,7 @@ Checkpoints
     ├── Classifier
     ├── Fusion_Models
     └── Single_Modality_Models
+```
 
 ### Datasets
 Download the FLIR Aligned Dataset from [here](https://drive.google.com/drive/folders/18XmdzKj0sGOFt0r4LmwMo9TsVNpyKEzT?usp=sharing), and extract it into the `Datasets` folder. The folder should have the following structure:
@@ -49,7 +49,8 @@ Datasets
     ├── Ir
     ├── Vis
     └── meta
-``` 
+```
+
 #### Training 
 * To train the model on full data of FLIR Dataset, run the following command:
 ```
@@ -58,7 +59,8 @@ python train_fusion.py Datasets/FLIR_Aligned --dataset flir_aligned_full --therm
 * To train the model on full data of m3fd Dataset, run the following command:
 ```
 python train_fusion.py Datasets/M3FD --dataset m3fd_full --rgb-checkpoint-path Checkpoints/M3FD/Single_Modality_Models/m3fd_rgb_backbone.pth.tar --thermal-checkpoint-path Checkpoints/M3FD/Single_Modality_Models/m3fd_thermal_backbone.pth.tar --init-fusion-head-weights thermal --num-classes 6 --rgb_mean 0.49151019 0.50717567 0.50293698 --rgb_std 0.1623529 0.14178433 0.13799928 --thermal_mean 0.33000296 0.33000296 0.33000296 --thermal_std 0.18958051 0.18958051 0.18958051 --model efficientdetv2_dt --batch-size=8 --epochs=50 --branch fusion --freeze-layer fusion_mrf --att_type mrf
-``` 
+```
+
 ## Validation
 #### Validate Single Modality Checkpoins
 * To validate the provided Pretrained Thermal checkpoint on m3fd Full Data (Test), run the following command:  
