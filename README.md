@@ -52,29 +52,29 @@ Datasets
 ```
 
 ## Training 
-* To train the model on full data of FLIR Dataset, run the following command:
+* To train the model on full data of FLIR Aligned Dataset(Full), run the following command:
 ```
 python train_fusion.py Datasets/FLIR_Aligned --dataset flir_aligned_full --thermal-checkpoint-path Checkpoints/FLIR_Aligned/Single_Modality_Models/flir_thermal_backbone.pth.tar --init-fusion-head-weights thermal --num-classes 90 --rgb_mean 0.485 0.456 0.406 --rgb_std 0.229 0.224 0.225 --thermal_mean 0.519 0.519 0.519 --thermal_std 0.225 0.225 0.225 --model efficientdetv2_dt --batch-size=8 --epochs=50 --branch fusion --freeze-layer fusion_mrf --att_type mrf
 ``` 
-* To train the model on full data of m3fd Dataset, run the following command:
+* To train the model on full data of M3FD Dataset(Full), run the following command:
 ```
 python train_fusion.py Datasets/M3FD --dataset m3fd_full --rgb-checkpoint-path Checkpoints/M3FD/Single_Modality_Models/m3fd_rgb_backbone.pth.tar --thermal-checkpoint-path Checkpoints/M3FD/Single_Modality_Models/m3fd_thermal_backbone.pth.tar --init-fusion-head-weights thermal --num-classes 6 --rgb_mean 0.49151019 0.50717567 0.50293698 --rgb_std 0.1623529 0.14178433 0.13799928 --thermal_mean 0.33000296 0.33000296 0.33000296 --thermal_std 0.18958051 0.18958051 0.18958051 --model efficientdetv2_dt --batch-size=8 --epochs=50 --branch fusion --freeze-layer fusion_mrf --att_type mrf
 ```
 
 ## Validation
 ### Validate Single Modality Checkpoins
-* To validate the provided Pretrained Thermal checkpoint on m3fd Full Data (Test), run the following command:  
+* To validate the provided Pretrained Thermal checkpoint on M3FD Data(Full), run the following command:  
 ```
 python validate_fusion.py Datasets/M3FD --dataset m3fd_full --thermal-checkpoint-path Checkpoints/M3FD/Single_Modality_Models/m3fd_thermal_backbone.pth.tar --init-fusion-head-weights thermal --classwise --split test --num-classes 6 --rgb_mean 0.49151019 0.50717567 0.50293698 --rgb_std 0.1623529 0.14178433 0.13799928 --thermal_mean 0.33000296 0.33000296 0.33000296 --thermal_std 0.18958051 0.18958051 0.18958051 --model efficientdetv2_dt --batch-size=8 --branch thermal
 ```
 
 ### Validating the Fusion Models
 
-#### FLIR_Aligned dataset
+* To validate the provided Pretrained fusion modle checkpoint on Flir Aligned Data(Full), run the following command:  
 ```
 bash bash/val_flir_full.sh
 ```
-#### M3FD dataset
+* To validate the provided Pretrained fusion modle checkpoint on M3FD Data(Full), run the following command:  
 ```
 bash bash/val_m3fd_full.sh
 ```
