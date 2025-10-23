@@ -4,7 +4,7 @@
 These codes are directly related to the current manuscript submitted to The Visual Computer: Enhancing RGB-IR Object Detection: A Frozen Backbone Approach with Multi-Receptive Field Attention. <br>
 
 <p align="center">
-<img src="Overview.pdf" width="95%">
+<img src="Overview.png" width="95%">
 </p>
 
 ## Installation
