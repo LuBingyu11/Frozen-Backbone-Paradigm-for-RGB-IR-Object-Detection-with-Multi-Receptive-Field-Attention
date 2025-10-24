@@ -45,10 +45,13 @@ Datasets
 │   ├── images_thermal_train
 │   ├── images_thermal_test
 │   └── meta
+│        ├── rgb
+│        └── thermal
 └── M3FD
     ├── Ir
     ├── Vis
     └── meta
+         
 ```
 
 ## Training 
